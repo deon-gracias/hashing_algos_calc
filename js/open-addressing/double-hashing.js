@@ -32,7 +32,7 @@ function oldDoubleHashing(elements) {
         ${result.map(e => `${e}`).join("")}
     </div>`
 
-}function doubleHashing(elements) {
+} function doubleHashing(elements) {
     let n = elements.length
 
     let hashes = {};
@@ -42,15 +42,16 @@ function oldDoubleHashing(elements) {
 
         let i = 0;
 
-        let hash = (element + i * (element % (n - 1))) % n;
-        res += `<div>H(${element})</div><div> = ${element} + ${i} * (${element} % ${n - 1}) % ${n} = ${hash}</div>`
+        let hash = (element + i * (1 + (element % (n - 1)))) % 7;
+        res += `<div>H(${element})</div><div> = [${element} + ${i} * (1 + ${element} % ${n - 1})] % ${n} = ${hash}</div>`
 
         while (hash in hashes && i < 4) {
             i++;
-            hash = (element + i * (element % (n - 1))) % n;
-            res += `<div></div><div> = ${element} + ${i} * (${element} % ${n - 1}) % ${n} = ${hash}</div>`
+            hash = (element + i * (1 + (element % (n - 1)))) % 7;
+            res += `<div></div><div> = [${element} + ${i} * (1 + ${element} % ${n - 1})] % ${n} = ${hash}</div>`
             console.log(i)
         }
+
         hashes[hash] = element;
         return `${res}</div><div>${drawHashMap(hashes)}</div>`;
     })
