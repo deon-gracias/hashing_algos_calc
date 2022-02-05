@@ -5,7 +5,7 @@ function drawHashMap(hashes) {
 }
 
 function linearProbe(elements) {
-    let n = elements.length
+    let n = elements.length + 1
 
     let hashes = {};
 
