@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Linear Probing</title>
     <script src="../js/open-addressing/linear-probe.js"></script>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <a href="../index.html">Back To Home</a>
     <div>
-        <div>
-            List of Nums : <input id="list-input" type="text"> (Accepts only a list of Numbers seperated by ,)
-        </div>
-        <div>
-            <button id="linear-probe-btn">Linear Probe</button>
-        </div>
+      <div>
+        List of Nums : <input id="list-input" type="text" /> (Accepts only a
+        list of Numbers seperated by ,)
+      </div>
+      <div>
+        Length : <input id="length-input" type="number" /> (If the length is the
+        number of elements then leave blank)
+      </div>
+      <div>
+        <button id="linear-probe-btn">Linear Probe</button>
+      </div>
     </div>
 
     <div id="result"></div>
-
-</body>
-<script>
-    let linearProbeBtn = document.getElementById("linear-probe-btn")
+  </body>
+  <script>
+    let linearProbeBtn = document.getElementById("linear-probe-btn");
     linearProbeBtn.addEventListener("click", () => {
-        let elements = document.getElementById("list-input").value
-        linearProbe(elements.split(",").map(element => Number.parseInt(element)));
-    })
-</script>
-
+      let elements = document.getElementById("list-input").value;
+      let n = document.getElementById("length-input").value;
+      linearProbe(
+        elements.split(",").map((element) => Number.parseInt(element)),
+        n
+      );
+    });
+  </script>
 </html>
